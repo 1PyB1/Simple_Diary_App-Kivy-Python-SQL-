@@ -27,5 +27,9 @@ pip install kivy mysql-connector-python
 ```bash
 python Diary.py
 ```
-![Screenshot](Diary_Photos/Ekran görüntüsü 2025-12-04 215410.png)
+## Images
+![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
+![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
+![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
+![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
 
