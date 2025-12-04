@@ -27,4 +27,5 @@ pip install kivy mysql-connector-python
 ```bash
 python Diary.py
 ```
+![Screenshot](Diary_Photos/Ekran görüntüsü 2025-12-04 215410.png)
 
