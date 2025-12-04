@@ -1,0 +1,486 @@
+#:import utils kivy.utils
+#:import Window kivy.core.window.Window
+DiaryManager:
+    MainScreen:
+    Signup:
+    Signin:
+    DiaryScreen:
+<DiaryManager>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#262727ff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#262727ff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    name: "MainArea"
+    FloatLayout:
+        Label:
+            font_name: "Fonts/Cute_Notes.ttf"
+            text:'Simple\n  Diary'
+            font_size: 70
+            pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        BoxLayout:
+            orientation: "horizontal"
+            padding: 60
+            spacing: 100
+            RoundedButton:
+                text: "Sign Up"
+                pos_hint: {"center_x": 0.4, "center_y": 0.3}
+                size_hint: .2,.125
+                on_release:
+                    app.root.current = "Signup"
+                    root.manager.transition.direction = "right"
+            RoundedButton:
+                text: "Sign In"
+                pos_hint: {"center_x": 0.6, "center_y": 0.3}
+                size_hint: 0.2,0.125
+                on_release:
+                    app.root.current = "Signin"
+                    root.manager.transition.direction = "left"
+            
+<Signup>:
+    username:username
+    invisible:invisible
+    invis:invis
+    passw:passw
+    password:password
+    passwo:passwo
+    verify:verify
+    verifying:verifying
+    exist:exist
+
+    name: "Signup"
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#262727ff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        Button:
+            pos: 10, root.height - self.height - 10
+            size_hint: None,None
+            size: 50, 50
+            background_normal: ""
+            background_color: 0,0,0,0
+            on_release:
+                app.root.current = "MainArea"
+                root.manager.transition.direction = "left"
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [45, 45, 45, 45]
+            Image:
+                source:"Photos/2acfa42c-ba44-4a7d-a9fb-206ab678b360.png"
+                center_x: self.parent.center_x 
+                center_y: self.parent.center_y
+                pos: (self.parent.center_x - self.width/2) - 1.5 ,  (self.parent.center_y - self.height/2) 
+                size_hint: None, None
+                size: 45, 45
+                
+        Label:
+            markup: True
+            text: "[b]Sign Up[/b]"
+            font_size: 60
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        Label:
+            id: invisible
+            opacity: 0
+            text: "Username cannot be less than 3 letters"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            id: exist
+            opacity: 0
+            text: "This Username Already Exist"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            id: invis
+            opacity: 0
+            text: "Username cannot be empty"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            id: passw
+            opacity: 0
+            text: "Password cannot be empty"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        Label:
+            id: passwo
+            opacity: 0
+            text: "Password cannot be less than 8 letters"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        Label:
+            id: verifying
+            opacity: 0
+            text: "Passwords are not matching"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+        TextInput:
+            id: username
+            cursor_color: (0, 0, 0, 1)
+            hint_text: "Username or Email"
+            size_hint: 0.6,0.05
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+            
+        TextInput:
+            id: password
+            cursor_color: (0, 0, 0, 1)
+            hint_text: "Password"
+            size_hint: 0.6,0.05
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+        TextInput:
+            id: verify
+            cursor_color: (0, 0, 0, 1)
+            hint_text: "Verify Your Password"
+            size_hint: 0.6,0.05
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+        Button:
+            markup: True
+            text: "[b]Confirm[/b]"
+            background_normal: ""
+            background_color: 0,0,0,0
+            pos_hint: {"center_x": 0.5, "center_y": 0.25}
+            size_hint: 0.6,0.05
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+            on_release: root.Username()
+            on_release: root.Password()
+            on_release: root.VerifyPassword()
+            on_release: root.GetStarted()
+
+<Signin>:
+    exist:exist
+    password:password
+    username:username
+    invisible1:invisible1
+    invis1:invis1
+    passw1:passw1
+    passwo1:passwo1
+    passwordcheck:passwordcheck
+    name: "Signin"
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#262727ff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        Button:
+            pos: 10, root.height - self.height - 10
+            size_hint: None,None
+            size: 50, 50
+            background_normal: ""
+            background_color: 0,0,0,0
+            on_release:
+                app.root.current = "MainArea"
+                root.manager.transition.direction = "right"
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [45, 45, 45, 45]
+            Image:
+                source:"Photos/2acfa42c-ba44-4a7d-a9fb-206ab678b360.png"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                pos: (self.parent.center_x - self.width/2) - 1.5 ,  (self.parent.center_y - self.height/2) 
+                size_hint: None, None
+                size: 45, 45
+        Label:
+            markup: True
+            text: "[b]Sign In[/b]"
+            font_size: 60
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.7}
+        Label:
+            id: invisible1
+            opacity: 0
+            text: "Username cannot be less than 3 letters"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            id: exist
+            opacity: 0
+            text: "Username Not Exist"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            id: invis1
+            opacity: 0
+            text: "Username cannot be empty"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        Label:
+            id: passw1
+            opacity: 0
+            text: "Password cannot be empty"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        Label:
+            id: passwo1
+            opacity: 0
+            text: "Password cannot be less than 8 letters"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        Label:
+            id: passwordcheck
+            opacity: 0
+            text: "Password Is Not Correct"
+            color: utils.get_color_from_hex('#f82424ff')
+            font_size: 15
+            size_hint: .5,.5
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+        TextInput:
+            id: username
+            cursor_color: (0, 0, 0, 1)
+            multiline: False
+            hint_text: "Username or Email"
+            size_hint: 0.6,0.05
+            pos_hint: {"center_x": 0.5, "center_y": 0.55}
+        TextInput:
+            id: password
+            cursor_color: (0, 0, 0, 1)
+            multiline: False
+            hint_text: "Password"
+            size_hint: 0.6,0.05
+            pos_hint: {"center_x": 0.5, "center_y": 0.45}
+        Button:
+            markup: True
+            text: "[b]Confirm[/b]"
+            background_normal: ""
+            background_color: 0,0,0,0
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+            size_hint: 0.6,0.05
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+            on_release: root.Username()
+            on_release: root.Password()
+            on_release: root.GetStarted()
+<DiaryScreen>:
+    name: "DiaryScreen"
+    page_number:page_number
+    ScreenManager:
+        id: pagemanager
+    
+    FloatLayout:
+        Button:
+            markup: True
+            pos: self.parent.width - self.width - 10, 5 
+            size_hint: None,None
+            #color: utils.get_color_from_hex('#000000ff')
+            size: 45, 45
+            font_size: 30
+            font_name: "DejaVuSans.ttf"
+            text:'→'
+            background_normal: ""
+            background_color: 0,0,0,0
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+            on_release: root.save_and_nextpage()
+            
+        Button:
+            markup: True
+            pos: 10, 5 
+            size_hint: None,None
+            #color: utils.get_color_from_hex('#000000ffu')
+            size: 45, 45
+            font_name: "DejaVuSans.ttf"
+            font_size: 30
+            text:'←'
+            background_normal: ""
+            background_color: 0,0,0,0
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15]
+            on_release: root.previous_page()
+
+        Button:
+            pos: 70, 5 
+            size_hint: None,None
+            size: 45, 45
+            text:''
+            background_normal: ""
+            background_color: 0,0,0,0
+            on_release:
+                root.logout()
+                app.root.current = "MainArea"
+                root.manager.transition.direction = "up"
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [45, 45, 45, 45]
+            Image:
+                source: "Photos/LogOut.png"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                pos: (self.parent.center_x - self.width/2 - 2)  ,  (self.parent.center_y - self.height/2) 
+                size_hint: None, None
+                size: 32, 32
+
+        Button:
+            pos: self.parent.width - self.width - 70, 5 
+            size_hint: None,None
+            size: 45, 45
+            text:''
+            background_normal: ""
+            background_color: 0,0,0,0  
+            on_release: root.save_the_page() 
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [45, 45, 45, 45]
+            Image:
+                source:"Photos/Save.png"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                pos: (self.parent.center_x - self.width/2)  ,  (self.parent.center_y - self.height/2) 
+                size_hint: None, None
+                size: 35, 35
+    
+            
+        Label: 
+            id: page_number
+            text: ""
+            size_hint: None, None
+            font_size:20
+            color: utils.get_color_from_hex('#999898ff')
+            pos: (self.parent.width - self.width)/2 , -20
+
+<DiaryPage>
+    FloatLayout:
+        size_hint: 1, 0.905           
+        pos_hint: {"top": 1}
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.93, 0.85, 1   # pastel defter rengi
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    
+        Button:
+            pos: 10, root.height - self.height - 10
+            size_hint: None,None
+            size: 45, 45
+            background_normal: ""
+            background_color: 0,0,0,0
+            on_release: root.open_popup()   
+            canvas.before:
+                Color:
+                    rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [45, 45, 45, 45]
+            Image:
+                source:"Photos/magnifying_glass.png"
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                pos: (self.parent.center_x - self.width/2)  ,  (self.parent.center_y - self.height/2) 
+                size_hint: None, None
+                size: 35, 35
+        Label:
+            text: root.date
+            font_size: 20
+            color: 0 , 0 , 0 , 1
+            size_hint: None, None
+            pos: self.parent.width - self.width - 10, Window.height - self.height + 25
+        TextInput:
+            cursor_color: 0, 0, 0, 1
+            hint_text: "Get Started"
+            text: root.content
+            font_size: 15
+            size_hint: .9, .85
+            pos_hint: {"center_x": .5, "center_y": .47}
+            padding: [10, 28 , 10, 28]
+            multiline: True
+            background_color: 0, 0, 0, 0
+            foreground_color: 0, 0, 0, 1
+            on_text: root.content = self.text
+<GoToPagePopup@Popup>:
+    size_hint: None, None
+    size: 200, 120
+    title: "Go to Page"
+    FloatLayout:
+        TextInput:
+            id: page_search
+            hint_text: "Go"
+            size_hint: None, None
+            size: 60, 35
+            multiline: False
+            input_filter: "int"
+            pos_hint: {"x": 0.3, "y": 0.15}
+            on_text_validate: root.go_to_page(self.text)
+<RoundedButton@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (30/255, 60/255, 120/255, 1) if self.state == 'down' else (48/255, 84/255, 150/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]
