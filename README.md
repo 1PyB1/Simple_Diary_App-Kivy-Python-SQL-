@@ -28,8 +28,15 @@ pip install kivy mysql-connector-python
 python Diary.py
 ```
 ## Images
-![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
-![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
-![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
-![Screenshot](https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png)
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215410.png" width="300"></td>
+    <td><img src="https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215458.png" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215535.png" width="300"></td>
+    <td><img src="https://raw.githubusercontent.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-/main/Diary_Photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-12-04%20215638.png" width="300"></td>
+  </tr>
+</table>
+
 
