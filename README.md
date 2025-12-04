@@ -18,8 +18,13 @@ A running MySQL Server is required. Make sure to create the necessary database a
 1. Make sure **Python 3.x** is installed on your system.
 2. Install required packages
 ```bash
+git clone https://github.com/1PyB1/Simple_Diary_App-Kivy-Python-SQL-.git
+cd Simple_Diary_App-Kivy-Python-SQL-
+```
+```bash
 pip install kivy mysql-connector-python
 ```
 ```bash
 python Diary.py
 ```
+
